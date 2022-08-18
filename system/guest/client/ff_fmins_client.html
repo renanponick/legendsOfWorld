@@ -1,0 +1,131 @@
+	<div id="conteudo_cadastro">
+		<div class="ajustar_centro ajustar_titulos">Cadastro</div>
+		<form name="frmcadastrar" action="?folder=system/guest/client&file=ff_ins_client&ext=php" method="post" onsubmit="return verifica_cadastro()">
+			<table >
+				<tr>
+					<td>
+						Nome Completo
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<input type="text" name="txtnomecompleto" required maxlength="30" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Data de Nascimento
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<input type="text" name="txtdata" maxlength="10" size="20" required placeHolder="Dia/Mês/Ano">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Tipo de Documento
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<select name="seldocumento" required onclick="clicar()">
+							<option value="">Tipo De Documento</option>
+							<option value="1">CPF</option>
+							<option value="2">RG</option>
+							<option value="3">Passaporte</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Número do documento
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<input type="text" id="num_doc" disabled placeholder="Escolha o tipo de Doc" name="txtnumerodoc" size="20" maxlength="20" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nome de Usuário
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<input type="text" name="txtnamelogin" required size="20" maxlength="30">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Senha
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<input type="password" name="pwdsenha" maxlength="20" size="20" required>
+					</td>
+				</tr>
+				<tr>
+					<td  class="texto">
+						Confirmar a senha
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<input class="campo" type="password" name="pwdsenhavalida" maxlength="20" size="20" required>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						E-mail
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<input type="text" name="txtemail" maxlength="78" size="20" required placeHolder="exemplo@exemplo.com">
+					</td>
+				</tr>
+				<tr>
+					<td class="texto">
+						Confirmar o E-mail
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<input class="campo" type="text" name="txtemailvalida" maxlength="78" size="20" required placeHolder="exemplo@exemplo.com">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Telefone
+					</td>
+					<td class="ajustar_centro doispontos">
+						:
+					</td>
+					<td class="ajustar_direita">
+						<input type="text" name="txttelefone" maxlength="12" size="20" required placeHolder="Apenas Números">
+					</td>
+				</tr>
+			</table>
+			<div class="ajustar_centro">
+				<button type="reset" name="btlimpar">
+					Limpar
+				</button>
+				<button type="submit" name="btcadastrar">
+					Cadastrar
+				</button>
+			</div>
+		</form>
+	</div>
+	<div class="ajustar_titulos">OBS: Todos os dados são OBRIGATÓRIOS para a efetuar o cadastro!</div>

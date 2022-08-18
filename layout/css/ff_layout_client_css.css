@@ -1,0 +1,230 @@
+/*
+ * Author: Escola Sistemica;
+ * Modified: 29/08/2014;
+ */
+
+#mensagemObrigatoria{
+	font-size:13px;
+	color:#FF1111;
+	font-family:Kristen ITC;
+}
+/* -- General Settings -- */
+
+html, body{
+  height:100%;
+  margin: 0px auto;
+  background-image: url('../images/background_client.jpg');
+  background-size: 100% 100% !important;
+}
+
+*{
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+span{
+	color:#AA0000;
+}
+
+/* -- End of General Settings -- */
+/* -- Header Settings -- */
+
+header{
+  background: linear-gradient(#000000,rgb(0, 0, 0) , rgba(18, 18, 18, 0.9)); /* Standard syntax */
+}
+
+/* -- Topbar Settings -- */
+
+header nav#topbar{
+  width:85%;
+  height:100%;
+  margin-left:2%;
+  color:#DADADA;
+  float:left;
+  cursor:pointer;
+}
+
+header nav#topbar ul{
+  width:100%;
+  height:100%;
+  padding:0px;
+  margin:0px;
+}
+
+header nav#topbar ul li{
+  width: -webkit-calc(33.33% - 2px);
+  width: -moz-calc(33.33% - 2px);
+  width: calc(33.33% - 2px);
+  height:100%;
+  font-size:1.6em;
+  text-align:center;
+  line-height:70px;
+  display:block;
+  float:left;
+  position:relative;
+}
+
+header nav#topbar ul li:first-child{
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-image:
+    -webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+  -webkit-border-image:
+    -webkit-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;
+  -moz-border-image:
+    -moz-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;
+  -o-border-image:
+    -o-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;
+  border-image:
+    linear-gradient(to bottom, white, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+header nav#topbar ul li:last-child{
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-image:
+    -webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+  -webkit-border-image:
+    -webkit-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;
+  -moz-border-image:
+    -moz-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;
+  -o-border-image:
+    -o-linear-gradient(white, rgba(0, 0, 0, 0)) 1 100%;
+  border-image:
+    linear-gradient(to bottom, white, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+header nav#topbar ul li:hover{
+  background: linear-gradient(#5d3492,transparent , transparent); /* Standard syntax */
+  color:#FDFDFD;
+}
+
+/* -- End of Topbar Settings -- */
+/* ************************** -- Tabela de Reservas -- ************************** */
+
+.tabela_reservas{
+	background-color:#F8F8F8;
+	width:800px;
+}
+
+/* ************************** -- Fim Tabela de Reservas -- ************************** */
+/*** Icons for topbar ***/
+.icon{
+  width:40px;
+  height:40px;
+  border:0px;
+  position:absolute;
+  left:30px;
+  top:15px;
+}
+
+.profile{
+  background: url(../images/profile_icon.png);
+  background-size:100% 100%;
+  left:95px;
+}
+
+.ticket{
+  background: url(../images/ticket_icon.png);
+  background-size:100% 100%;
+}
+
+.reservedticket{
+  background: url(../images/reservedticket_icon.png);
+  background-size:100% 100%;
+}
+
+.exit{
+  background: url(../images/exit_icon.png);
+  background-size:100% 100%;
+  float:right;
+  width:40px;
+  height:40px;
+  margin-right:20px;
+  margin-top:10px;
+  cursor:pointer;
+}
+.exit:hover{
+  background: url(../images/exit_hover_icon.png);
+  background-size:100% 100%;
+}
+/*** End icons ***/
+
+/* -- End of Header Settings -- */
+
+/* -- Content Settings -- */
+
+div#content{
+width:100%;
+}
+
+h2{
+  padding-top:10px;
+  width:100%;
+  margin:0px;
+  background: linear-gradient( rgba(18, 18, 18, 0.9),rgba(12, 0, 45, 0.72) , transparent); /* Standard syntax */
+  color:#FDFDFD;
+  text-shadow:1px 1px 10px #000000;
+  font-size:1.8em;
+}
+
+fieldset{
+  background:rgba(255, 255, 255, 0.76);
+}
+
+div#content fieldset button[type=submit]{
+	background-color: rgba(21, 169, 100, 0.93);
+	border:1px solid rgba(21, 169, 100, 0.93);
+	margin-left:5px;
+}
+
+div#content fieldset button[type=submit]:hover{
+	background-color:rgba(85, 202, 144, 0.94);
+	border:1px solid rgba(85, 202, 144, 0.94);
+}
+
+div#content fieldset button[type=reset]{
+  background-color: rgb(192, 55, 68);
+  border:1px solid rgb(192, 55, 68);
+  margin-left:5px;
+}
+
+div#content fieldset button[type=reset]:hover{
+  background-color: rgb(245, 162, 169);
+  border:1px solid rgb(245, 162, 169);
+}
+
+button[type=button]{
+  background-color: rgb(255, 255, 255);
+  border:1px solid rgb(162, 162, 162);
+  margin-left:5px;
+  width:160px;
+  height:30px;
+  font-size: 1.1em;
+}
+
+button[type=button]:hover{
+  background-color: rgb(231, 230, 230);
+  border:1px solid rgb(231, 230, 230);
+}
+
+div#mensagem{
+  margin-top:50px;
+  color:#717171;
+}
+
+div#mensagem h1 img{
+  margin:0px;
+  padding:0px;
+  position:relative;
+  top:15px;
+}
+/* -- End of Content Settings -- */
+
+/* -- Footer Settings -- */
+
+footer{
+  background: linear-gradient(transparent,rgba(12, 0, 45, 0.72) , rgba(18, 18, 18, 0.92)); /* Standard syntax */
+  color:#ffffff;
+  text-shadow:1px 1px 10px #fdfdfd;
+}
+
+/* -- End of Footer Settings -- */

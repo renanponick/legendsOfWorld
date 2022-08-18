@@ -1,0 +1,35 @@
+/*
+	Autor:Renan Ponick
+	Data: 09/04/2015
+*/
+#logo{
+	float:left;
+	height:200px;
+	width:120px;
+	background:black;
+}
+.info{
+	width:245px;
+	height:223px;
+	text-align:center;
+	margin-left:210px;
+}
+table{
+	text-align:center;
+}
+table tr th{
+	background-image: linear-gradient(to top, #AAAAAA, #EEEEEE);
+	text-align:center;
+}
+.tabela_programacao{
+	width:50%;
+	margin-bottom:30px;
+	margin-left:180px;
+	text-align:center;
+}
+#titulo{
+	font-size:19px;
+	text-align:center;
+	
+		color:#CC8602;
+}

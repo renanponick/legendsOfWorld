@@ -1,0 +1,304 @@
+/*
+ * Author: Escola Sistemica;
+ * Modified: 29/08/2014;
+ */
+
+/* -- General Settings -- */
+
+body{
+	margin: 0px auto;
+}
+
+*{
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+#mensagemObrigatoria{
+	font-size:13px;
+	color:#FF1111;
+	font-family:Kristen ITC;
+}
+#msg{
+	font-size:18px;
+	text-align:center;
+}
+
+span{
+	color:#CC0000;
+}
+/* -- End of General Settings -- */
+
+/* -- Grafico Cancelado --*/
+
+
+.chart-legenda ul {
+list-style: none;
+width: 100%;
+margin-left:-5px;
+}
+.chart-legenda li {
+ position: relative;
+ display: block;
+ float: left;
+ width: 45%;
+ font-size: 0.8em;
+}
+.chart-legenda li:before {
+ display: block;
+ width: 10px;
+ height: 10px;
+ border-radius:5px;
+ position: absolute;
+ top: 2px;
+ content:"";
+}
+.D:before { background-color: #FFD600; }
+.S:before { background-color: #E5C100; }
+.F:before { background-color: #FFD600; }
+.E:before { background-color: #E5C100; }
+.I:before { background-color: #7F6B00; }
+.A:before { background-color: #BFA000; }
+.O:before { background-color: #403500; }
+
+/* -- Header Settings -- */
+
+header{
+	width: 100%;
+	height: 70px;
+	background-color: black;
+	color: #FFFFFF;
+}
+
+header img{
+	max-height: 60px; 
+	margin: 5px;
+	float: left;
+	display: inline;
+}
+
+header h3{
+	font-size: 30px;
+	font-weight: 400;
+	float: left;
+	display: inline;
+	margin: 18px 0px 0px 5px;
+}
+
+header h4{
+	font-weight: normal;
+	float:right;
+	display: inline;
+	font-size: 15px;
+	margin-top: 26px;
+}
+
+header a:link, header a:active, header a:visited{
+	text-decoration: underline;
+	color:#FFFFFF;
+}
+
+header a:hover{
+	text-decoration: none;
+}
+
+.btnlogout{
+	width: 100px;
+	height: 30px;
+	margin: 20px;
+	font-size: 15px;
+	background-color: #D8D8D8;
+	border: 2px solid #D8D8D8;
+	float: right;
+	display: inline;
+	cursor: pointer;
+}
+
+.btnlogout:hover{
+	background-color: #C8C8C8;
+	border-color: #C8C8C8;
+}
+
+/* -- End of Header Settings -- */
+
+/* -- Sidebar Settings -- */
+
+div#sidebar{
+	width: 220px;
+	height: -webkit-calc(100% - 100px);
+	height: -moz-calc(100% - 100px);
+	height: calc(100% - 100px);
+	background-color: #DFDFDF;
+	color: #000000;
+	position: absolute;
+	/*float: left;*/
+	left: 0;
+}
+
+div#sidebar h4{
+	margin: 5px;
+	color: #5A5858;
+}
+
+div#sidebar nav ul{
+	padding:0px;
+	margin:0px;
+}
+
+div#sidebar nav ul li{
+	list-style: none;
+	min-height: 20px;
+	padding: 10px 0px 10px 15px;
+	cursor: pointer;
+}
+
+div#sidebar nav ul li:hover{
+	background-color: #C8C8C8;
+}
+
+/* Classe .active-menu deve ser utilizada no menu da página atual! */
+div#sidebar nav ul li.active-menu{
+	background-color: #C8C8C8;
+}
+
+/* Sidebar links settings */
+div#sidebar nav ul a:link, a:active, a:visited, a:hover{
+	text-decoration: none;
+	color: #000000;
+}
+
+/* -- End of Sidebar Settings -- */
+
+/* -- Footer Settings -- */
+
+footer{
+	width: 100%;
+	height: 30px;
+	background-color: #C8C8C8;
+	position: absolute;
+	bottom: 0;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	color: #000000;
+	line-height: 30px;
+}
+
+/* -- End of Footer Settings -- */
+
+/* -- Content Settings -- */
+
+div#content{
+	width: -webkit-calc(100% - 220px);
+	width: -moz-calc(100% - 220px);
+	width: calc(100% - 220px);
+	height: -webkit-calc(100% - 100px);
+	height: -moz-calc(100% - 100px);
+	height: calc(100% - 100px);
+	/*float:right;*/
+	position: absolute;
+	right:0;
+	text-align: center;
+	overflow: auto;
+}
+
+div#content fieldset{
+	width:400px;
+	min-height:30px;
+	margin:0px auto;
+	margin-top:20px;
+	margin-bottom:10px;
+}
+
+div#content fieldset form{
+	margin: 0px;
+}
+
+div#content fieldset table{
+	width:100%;
+}
+
+div#content fieldset input{
+	width:100%;
+	height:30px;
+	font-size: 15px;
+}
+
+div#content fieldset select{
+	width:100%;
+	height:30px;
+	font-size: 15px;
+	background-color: #FFFFFF;
+}
+
+div#content fieldset textarea{
+	width: 100%;
+	height:60px;
+	resize:none;
+	font-size: 15px;
+}
+
+div#content fieldset button{
+	width:100px;
+	height:30px;
+	margin-top:5px;
+	font-size: 16px;
+	cursor:pointer;
+}
+/* Seleciona todos os buttons do tipo `submit` que estiverem dentro de um
+	fieldset, que por sua vez deve estar dentro de uma div com id `content
+*/
+div#content fieldset button[type=submit]{
+	background-color: rgb(59,176,3);
+	border:1px solid rgb(59, 176, 3);
+	margin-left:5px;
+}
+
+div#content fieldset button[type=submit]:hover{
+	background-color: rgb(56,164,4);
+	border:1px solid rgb(56, 164, 4);
+}
+/* Seleciona todos os buttons do tipo `reset` que estiverem dentro de um
+	fieldset, que por sua vez deve estar dentro de uma div com id `content
+*/
+div#content fieldset button[type=reset]{
+	background-color: rgb(213,70,71);
+	border:1px solid rgb(213,70,71);
+	margin-left:5px;
+}
+
+div#content fieldset button[type=reset]:hover{
+	background-color: rgb(210,5,6);
+	border:1px solid rgb(210,5,6);
+}
+/* Seleciona todos os buttons do tipo `buton` que estiverem dentro de um
+	fieldset, que por sua vez deve estar dentro de uma div com id `content
+*/
+div#content fieldset button[type=button]{
+	background-color: #DFDFDF;
+	border:1px solid #DFDFDF;
+	margin-left:5px;
+}
+
+div#content fieldset button[type=button]:hover{
+	background-color: #C8C8C8;
+	border:1px solid #C8C8C8;
+}
+
+div#content table{
+	margin: 0px auto;
+	min-width:400px;
+	min-height:30px;
+	border-color: #000000;
+	border-collapse: collapse;
+	margin-bottom: 5px;
+}
+
+div#content table th{
+	padding:2px;
+	background-color: #DFDFDF;
+}
+
+div#content table td{
+	padding:2px;
+}
+
+/* -- End of Content Settings -- */

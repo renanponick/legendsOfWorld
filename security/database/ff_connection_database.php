@@ -5,8 +5,7 @@
 	// extension=php_pdo_pgsql.dll
 	// extension=php_pgsql.dll
 	$dsn = "pgsql:port=$porta;dbname=$banco;user=$usuario;password=$senha;host=$servidor";
-	$teste = new PDO($dsn);
-	$conexao = $teste 
+	$conexao = new PDO($dsn);
 	// $sql = 'SELECT * FROM users';
 	// $stmt = $conexao->prepare($sql);
 	// $stmt->execute();

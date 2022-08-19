@@ -9,7 +9,6 @@
 								}else{
 									//Alterando a Senha Para modo Encriptado
 									$hash_senha = md5($salt.$p_senha);
-									echo $hash_senha;
 									$sql_sel_autenticacao="SELECT login, senha, id, permissao FROM usuarios WHERE login='".addslashes($p_nome)."' AND senha='".$hash_senha."'";
 											
 									// $sql_sel_autenticacao_resultado=$conexao->query($sql_sel_autenticacao);							

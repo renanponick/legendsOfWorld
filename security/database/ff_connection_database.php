@@ -5,6 +5,7 @@
 	//$dsn = "pgsql:host=$servidor;port=5432;dbname=$banco;user=$usuario;password=$senha";
 	
 	$dsn = "pgsql:host=" . $servidor . ";port=" . $porta .";dbname=" . $banco . ";user=" . $usuario . ";password=" . $senha . ";";
+	echo $dsn;
 	//create a pdo instance
 	$conexao = new PDO($dsn, $usuario, $senha);
 	$conexao->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);

@@ -11,9 +11,16 @@
 									$hash_senha = md5($salt.$p_senha);
 									echo $hash_senha;
 									$sql_sel_autenticacao="SELECT login, senha, id, permissao FROM usuarios WHERE login='".addslashes($p_nome)."' AND senha='".$hash_senha."'";
-									$sql_sel_autenticacao_resultado=$conexao->query($sql_sel_autenticacao);
-									if($sql_sel_autenticacao_resultado->num_rows > 0){
-										$sql_sel_autenticacao_dados = $sql_sel_autenticacao_resultado->fetch_array();
+											
+									// $sql_sel_autenticacao_resultado=$conexao->query($sql_sel_autenticacao);							
+									$sql_sel_autenticacao_resultado=$conexao->prepare($sql_sel_autenticacao);
+									$sql_sel_autenticacao_resultado->execute();
+								
+									if($sql_sel_autenticacao_resultado->rowCount() > 0){
+										$sql_sel_autenticacao_dados = $sql_sel_autenticacao_resultado->fetch();
+								
+									// if($sql_sel_autenticacao_resultado->num_rows > 0){
+									// 	$sql_sel_autenticacao_dados = $sql_sel_autenticacao_resultado->fetch_array();
 										// Iniciando sessão 
 										session_start();
 										$_SESSION['usuario'] = $p_nome;

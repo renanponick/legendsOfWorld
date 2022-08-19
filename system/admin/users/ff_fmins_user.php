@@ -21,7 +21,7 @@
 	</fieldset>
 	<?php
 		$sql_sel_usuarios = "SELECT id, login FROM usuarios WHERE permissao = '0'";
-		$sql_sel_usuarios_resultado = $conexao->query($sql_sel_usuarios);
+		$sql_sel_usuarios_resultado = $conexao->prepare($sql_sel_usuarios);
 	?>
 	<h4>Administradores Registrados</h4>
 	<table border="1" width="550">
@@ -34,7 +34,7 @@
 		</thead>
 		<tbody>
 			<?php
-				if($sql_sel_usuarios_resultado->num_rows == 0){
+				if($sql_sel_usuarios_resultado->rowCount() == 0){
 			?>
 				<tr>
 					<td colspan='3'>Não possui nenhum registro.</td>
@@ -44,7 +44,7 @@
 				//FETCH_ARRAY(extrai) transforma em array pega o nome da coluna do banco e transforma em uma chave
 				//num_rows é o número de resultados encontrados. --- numero registros daquela consulta
 				//fetch_array puxa um Dado do BD
-					while ($sql_sel_usuarios_dados = $sql_sel_usuarios_resultado->fetch_array()){ 
+					while ($sql_sel_usuarios_dados = $sql_sel_usuarios_resultado->fetch()){ 
 			?>
 						<tr>
 							<td> <?php echo $sql_sel_usuarios_dados['login']; ?> </td>

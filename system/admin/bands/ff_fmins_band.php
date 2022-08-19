@@ -2,7 +2,7 @@
 	<?php
 		//ORDE(R)na BY(de forma) ASCendente
 		$sql_sel_datas = "SELECT id, dia FROM datas ORDER BY dia ASC";
-		$sql_sel_datas_resultado = $conexao->query($sql_sel_datas);
+		$sql_sel_datas_resultado = $conexao->prepare($sql_sel_datas);
 	?>
 		<legend>Cadastro de Banda</legend>
 		<form name="frmcadband" method="post" action="?folder=bands&file=ff_ins_band&ext=php" onsubmit="return verificar_banda()">
@@ -14,7 +14,7 @@
 							<option value="">Escolha...</option>
 							<?php
 							//Enquanto conseguir extrair um arrei de resultados e enviar para a variavel dados
-								while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch_array()){
+								while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch()){
 							//transformando pra fomato br
 							$data = implode('/', array_reverse(explode('-', $sql_sel_datas_dados['dia']))); 
 								// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 
@@ -65,18 +65,18 @@
 									 datas.dia
 							FROM bandas
 							INNER JOIN datas ON (datas.id = bandas.datas_id)";
-			$sql_sel_bandas_resultado=$conexao->query($sql_sel_bandas);
+			$sql_sel_bandas_resultado=$conexao->prepare($sql_sel_bandas);
 		?>
 		<tbody>
 			<?php
-				if($sql_sel_bandas_resultado->num_rows == 0){
+				if($sql_sel_bandas_resultado->rowCount() == 0){
 			?>
 				<tr>
 					<td colspan='5'>Não possui nenhum registro.</td>
 				</tr>
 			<?php 
 			}else{
-				while($sql_sel_bandas_dados=$sql_sel_bandas_resultado->fetch_array()){
+				while($sql_sel_bandas_dados=$sql_sel_bandas_resultado->fetch()){
 					//transformando pra fomato br
 					$data = implode('/', array_reverse(explode('-', $sql_sel_bandas_dados['dia']))); 
 					// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 

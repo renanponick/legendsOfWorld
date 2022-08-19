@@ -43,7 +43,7 @@
 									INNER JOIN ingressosdisponiveis ON (reservas.ingressosdisponiveis_id = ingressosdisponiveis.id)
 									INNER JOIN datas ON (ingressosdisponiveis.datas_id = datas.id)
 									GROUP BY datas.dia";
-		$sql_sel_financieiro_resultado=$conexao->query($sql_sel_financieiro);
+		$sql_sel_financieiro_resultado=$conexao->prepare($sql_sel_financieiro);
 		
 
 $_SESSION['pagina']['titulo'] = "<h4>Estimativa de Ganho com Venda de Ingressos</h4>";
@@ -61,7 +61,7 @@ $_SESSION['pagina']['conteudo'] = "
 					<th width='10%'>Ganho em Aberto</th>
 				</tr>
 			</thead>";
-			if($sql_sel_financieiro_resultado->num_rows == 0){
+			if($sql_sel_financieiro_resultado->rowCount() == 0){
 $_SESSION['pagina']['conteudo'] .="
 			<tr>
 				<td colspan='8'>Não há nenhuma Reserva no Sistema.</td>
@@ -69,7 +69,7 @@ $_SESSION['pagina']['conteudo'] .="
 			$aux="1";
 			}else{
 			//Enquanto o Financeiro_dados conseguir extrair dados do financeiro resultado faça
-			while($sql_sel_financeiro_dados = $sql_sel_financieiro_resultado->fetch_array()){
+			while($sql_sel_financeiro_dados = $sql_sel_financieiro_resultado->fetch()){
 				//transformando pra fomato br
 					$data = implode('/', array_reverse(explode('-', $sql_sel_financeiro_dados['dia']))); 
 					// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 

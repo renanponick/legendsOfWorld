@@ -45,8 +45,8 @@
 															// .-. Criando a sintaxe SQL para executar no BD .-. \\
 																$sql_sel_ingresso="SELECT id, datas_id FROM ingressosdisponiveis WHERE datas_id='".addslashes($p_dataingresso)."'";
 																// .-. Verificar(executa a sintaxe) se deu certo a Sintaxe .-. \\
-																$sql_sel_ingresso_resultado = $conexao -> query($sql_sel_ingresso);
-																if($sql_sel_ingresso_resultado->num_rows > 0){
+																$sql_sel_ingresso_resultado = $conexao -> prepare($sql_sel_ingresso);
+																if($sql_sel_ingresso_resultado->rowCount() > 0){
 																	$msg = "Essa data já possui ingressos cadastrados.";
 																}else{
 																	$tabela="ingressosdisponiveis";

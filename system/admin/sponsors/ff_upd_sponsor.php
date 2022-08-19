@@ -18,9 +18,9 @@
 				//criando sintaxe
 				$sql_sel_patrocinadores="SELECT nome FROM patrocinadores WHERE nome='".addslashes($p_nomepatroc)."' AND id<>'".$p_id."'";
 				//executando sintaxe
-				$sql_sel_patrocinadores_resultado=$conexao->query($sql_sel_patrocinadores);
+				$sql_sel_patrocinadores_resultado=$conexao->prepare($sql_sel_patrocinadores);
 				//Verificando quantas vezes ele achou o que foi solicitado
-				if($sql_sel_patrocinadores_resultado->num_rows > 0){
+				if($sql_sel_patrocinadores_resultado->rowCount() > 0){
 					$msg = "Esse patrocinador já está cadastrado.";
 				}else{
 					$tabela = "patrocinadores";

@@ -7,7 +7,7 @@
 								FROM datas 
 								INNER JOIN ingressosdisponiveis ON (ingressosdisponiveis.datas_id = datas.id)
 								ORDER BY dia ASC";
-			$sql_sel_ingressos_resultado = $conexao->query($sql_sel_ingressos);
+			$sql_sel_ingressos_resultado = $conexao->prepare($sql_sel_ingressos);
 		?>
 			<h2>Reserva de Ingressos</h2>
 			<fieldset>
@@ -20,7 +20,7 @@
 									<option value="">Escolha...</option>
 								<?php
 									//Enquanto conseguir extrair um arrei de resultados e enviar para a variavel dados
-									while($sql_sel_ingressos_dados= $sql_sel_ingressos_resultado->fetch_array()){
+									while($sql_sel_ingressos_dados= $sql_sel_ingressos_resultado->fetch()){
 									$data = implode('/', array_reverse(explode('-', $sql_sel_ingressos_dados['dia']))); 
 									// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 
 									// $data = implode('/', array_reverse(array(2014, 12, 15));
@@ -53,8 +53,8 @@
 			$sql_sel_tabela="SELECT ingressosdisponiveis.valor_normal, ingressosdisponiveis.valor_vip, datas.dia FROM datas
 								INNER JOIN ingressosdisponiveis ON (ingressosdisponiveis.datas_id = datas.id)
 								ORDER BY dia ASC";
-			$sql_sel_tabela_resultado=$conexao->query($sql_sel_tabela);
-			if($sql_sel_tabela_resultado->num_rows==0){
+			$sql_sel_tabela_resultado=$conexao->prepare($sql_sel_tabela);
+			if($sql_sel_tabela_resultado->rowCount()==0){
 				echo "<h3>Nenhum ngresso Disponivel no sistema</br>Volte mais tarde...<h3>";
 			}else{
 			?>
@@ -67,7 +67,7 @@
 							<th>VIP</th>
 						</tr>
 						<?php
-							while($sql_sel_tabela_dados = $sql_sel_tabela_resultado->fetch_array()){
+							while($sql_sel_tabela_dados = $sql_sel_tabela_resultado->fetch()){
 							$data = implode('/', array_reverse(explode('-', $sql_sel_tabela_dados['dia']))); 
 							// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 
 							// $data = implode('/', array_reverse(array(2014, 12, 15));

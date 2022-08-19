@@ -2,7 +2,7 @@
 	$g_id = $_GET['id'];
 	//Entrando em contato com o banco Através de uma sintaxe
 	$sql_sel_usuarios="SELECT login FROM usuarios WHERE id='".$g_id."'";
-	$sql_sel_usuarios_resultado=$conexao->query($sql_sel_usuarios);
+	$sql_sel_usuarios_resultado=$conexao->prepare($sql_sel_usuarios);
 	if($sql_sel_usuarios_resultado -> num_rows == 0){ ?>
 		<fieldset>
 			<legend>Aviso</legend>
@@ -12,7 +12,7 @@
 		</fieldset>
 	<?php
 	}else{
-		$sql_sel_usuarios_dados = $sql_sel_usuarios_resultado->fetch_array();
+		$sql_sel_usuarios_dados = $sql_sel_usuarios_resultado->fetch();
 	?>
 		<fieldset>
 			<legend>Alteração de Administrador</legend>

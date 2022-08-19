@@ -3,7 +3,7 @@
 		$g_id = $_GET['id'];
 		//Entrando em contato com o banco Através de uma sintaxe
 		$sql_sel_patrocinadores= "SELECT nome, url_logo FROM patrocinadores WHERE id='".$g_id."'";
-		$sql_sel_patrocinadores_resultado = $conexao->query($sql_sel_patrocinadores);
+		$sql_sel_patrocinadores_resultado = $conexao->prepare($sql_sel_patrocinadores);
 		if($sql_sel_patrocinadores_resultado -> num_rows == 0){ ?>
 		<fieldset>
 			<legend>Aviso</legend>
@@ -13,7 +13,7 @@
 		</fieldset>
 	<?php
 	}else{
-		$sql_sel_patrocinadores_dados = $sql_sel_patrocinadores_resultado->fetch_array();
+		$sql_sel_patrocinadores_dados = $sql_sel_patrocinadores_resultado->fetch();
 	?>
 		<!-- Mensagem final -->
 		<fieldset>

@@ -11,8 +11,8 @@
 					$msg = "Preencha o campo Senha!";
 				}else{
 					$sql_sel_usuarios = "SELECT login FROM usuarios WHERE login = '".addslashes($p_nomelogin)."'";
-					$sql_sel_usuarios_resultado = $conexao->query($sql_sel_usuarios);
-					if($sql_sel_usuarios_resultado->num_rows > 0){ //Quantas linhas ele executou no banco
+					$sql_sel_usuarios_resultado = $conexao->prepare($sql_sel_usuarios);
+					if($sql_sel_usuarios_resultado->rowCount() > 0){ //Quantas linhas ele executou no banco
 						$msg = "Esse nome já está cadastrado.";
 					}else{
 					//Alterando a Senha Para modo Encriptado

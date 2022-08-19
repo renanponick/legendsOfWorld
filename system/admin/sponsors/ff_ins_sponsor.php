@@ -14,8 +14,8 @@
 			}else{
 				//Entrando em contato com o banco Através de uma sintaxe
 				$sql_sel_patrocinadores = "SELECT nome FROM patrocinadores WHERE nome='".addslashes($p_nomepatroc)."'";
-				$sql_sel_patrocinadores_resultado = $conexao -> query($sql_sel_patrocinadores);
-				if($sql_sel_patrocinadores_resultado->num_rows > 0){
+				$sql_sel_patrocinadores_resultado = $conexao -> prepare($sql_sel_patrocinadores);
+				if($sql_sel_patrocinadores_resultado->rowCount() > 0){
 					$msg = "Esse Patrocinador já está cadastrado.";
 				}else{
 					$tabela="patrocinadores";

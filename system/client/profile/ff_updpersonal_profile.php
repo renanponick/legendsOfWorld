@@ -46,8 +46,8 @@
 														$msg="Preencha o campo E-mail corretamente!";
 													}else{
 															$sql_sel_clientes="SELECT tipo_doc, num_doc FROM clientes WHERE tipo_doc='".addslashes($p_doc)."' AND num_doc='".addslashes($p_numdoc)."' AND usuarios_id<>'".addslashes($_SESSION['id'])."'";
-															$sql_sel_clientes_resultado=$conexao->query($sql_sel_clientes);
-															if($sql_sel_clientes_resultado->num_rows>0){
+															$sql_sel_clientes_resultado=$conexao->prepare($sql_sel_clientes);
+															if($sql_sel_clientes_resultado->rowCount()>0){
 																$msg="<br>Usuário já cadastrado.<br>Motivo: Este Numero de ".$documento." ( ".$p_numdoc." ) já está sendo utilizado, favor conferi-lo.";
 														}else{
 															

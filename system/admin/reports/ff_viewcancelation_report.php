@@ -16,11 +16,11 @@
 		$motivo_s = 0;
 		$motivo_d = 0;
 		$sql_sel_canceladas = "SELECT motivo, permissao_usuario FROM canceladas";
-		$sql_sel_canceladas_resultado = $conexao->query($sql_sel_canceladas);
-		if($sql_sel_canceladas_resultado->num_rows==0){
+		$sql_sel_canceladas_resultado = $conexao->prepare($sql_sel_canceladas);
+		if($sql_sel_canceladas_resultado->rowCount()==0){
 			echo "<span id='msg'>Sem Declinio e Cancelamento</span>";
 		}else{
-			while($sql_sel_canceladas_dados = $sql_sel_canceladas_resultado -> fetch_array()){
+			while($sql_sel_canceladas_dados = $sql_sel_canceladas_resultado -> fetch()){
 				if($sql_sel_canceladas_dados['motivo']=="O"){
 					if($sql_sel_canceladas_dados['permissao_usuario']==0){
 						$motivo_o_adm += 1;

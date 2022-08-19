@@ -6,8 +6,8 @@
 									INNER JOIN ingressosdisponiveis ON (reservas.ingressosdisponiveis_id = ingressosdisponiveis.id)
 									INNER JOIN datas ON (datas.id = ingressosdisponiveis.datas_id)
 									ORDER BY codigo DESC";
-			$sql_sel_informacao_resultado=$conexao->query($sql_sel_informacao);
-			$sql_sel_informacao_checar=$sql_sel_informacao_resultado->num_rows;
+			$sql_sel_informacao_resultado=$conexao->prepare($sql_sel_informacao);
+			$sql_sel_informacao_checar=$sql_sel_informacao_resultado->rowCount();
 		?>
 			<h4>Reservas Efetuadas</h4>
 			<table border="1" width="1000">
@@ -32,7 +32,7 @@
 							<td colspan="10">Não há nenhuma Reserva no Sistema.</td>					
 					<?php
 					}else{
-						while($sql_sel_informacao_dados=$sql_sel_informacao_resultado->fetch_array()){
+						while($sql_sel_informacao_dados=$sql_sel_informacao_resultado->fetch()){
 							if($sql_sel_informacao_dados['tipo_doc']=="1"){
 								$documento="CPF";
 							}else if($sql_sel_informacao_dados['tipo_doc']=="2"){

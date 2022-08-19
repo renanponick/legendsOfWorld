@@ -1,7 +1,7 @@
 	<fieldset>
 	<?php
 		$sql_sel_datas = "SELECT id, dia FROM datas ORDER BY dia ASC";
-		$sql_sel_datas_resultado = $conexao->query($sql_sel_datas);
+		$sql_sel_datas_resultado = $conexao->prepare($sql_sel_datas);
 	?>
 		<legend>Cadastro de Ingresso</legend>
 		<form name="frmcadingr" method="post" action="?folder=tickets&file=ff_ins_ticket&ext=php" onsubmit="return verificar_ingresso()">
@@ -13,7 +13,7 @@
 							<option value="">Escolha...</option>
 							<?php
 							//Enquanto conseguir extrair um arrei de resultados e enviar para a variavel dados
-								while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch_array()){
+								while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch()){
 								//transformando pra fomato br
 								// local da separação de array, o que irá separar
 								$data = implode('/', array_reverse(explode('-', $sql_sel_datas_dados['dia'])));
@@ -69,18 +69,18 @@
 									 datas.dia
 							FROM ingressosdisponiveis
 							INNER JOIN datas ON (datas.id = ingressosdisponiveis.datas_id)";
-			$sql_sel_ingressos_resultado=$conexao->query($sql_sel_ingressos);
+			$sql_sel_ingressos_resultado=$conexao->prepare($sql_sel_ingressos);
 		?>
 		<tbody>
 			<?php 
-				if($sql_sel_ingressos_resultado->num_rows == 0){
+				if($sql_sel_ingressos_resultado->rowCount() == 0){
 			?>
 			<tr>
 				<td colspan='7'>Não possui nenhum registro.</td>
 			</tr>
 			<?php 	
 				}else{
-					while($sql_sel_ingressos_dados=$sql_sel_ingressos_resultado->fetch_array()){
+					while($sql_sel_ingressos_dados=$sql_sel_ingressos_resultado->fetch()){
 				//transformando pra fomato br
 					// local da separação de array, o que irá separar
 					$data = implode('/', array_reverse(explode('-', $sql_sel_ingressos_dados['dia']))); 

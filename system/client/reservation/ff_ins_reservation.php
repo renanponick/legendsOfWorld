@@ -26,22 +26,22 @@
 									}else{
 										//Selecionando o ID do usuario para a Reserva
 										$sql_sel_clientes="SELECT id FROM clientes WHERE usuarios_id='".$_SESSION['id']."'";
-										$sql_sel_clientes_resultado=$conexao->query($sql_sel_clientes);
+										$sql_sel_clientes_resultado=$conexao->prepare($sql_sel_clientes);
 										//Transformando em ARRAY
-										$sql_sel_clientes_dados=$sql_sel_clientes_resultado->fetch_array();
+										$sql_sel_clientes_dados=$sql_sel_clientes_resultado->fetch();
 										//Salvando o ID do Cliente
 										$idCliente=$sql_sel_clientes_dados['id'];
 										
 										//Selecionando o Id estrangeiro dos Ingressos Disponiveis
 										$sql_sel_ingressosdisponiveis="SELECT * FROM ingressosdisponiveis WHERE datas_id='".$p_data."'";
-										$sql_sel_ingressosdisponiveis_resultado=$conexao->query($sql_sel_ingressosdisponiveis);
+										$sql_sel_ingressosdisponiveis_resultado=$conexao->prepare($sql_sel_ingressosdisponiveis);
 										//Transformando em ARRAY
-										$sql_sel_ingressosdisponiveis_dados=$sql_sel_ingressosdisponiveis_resultado->fetch_array();
+										$sql_sel_ingressosdisponiveis_dados=$sql_sel_ingressosdisponiveis_resultado->fetch();
 										//Salvando o ID dos Ingressos Disponiveis
 										$idIngressos = $sql_sel_ingressosdisponiveis_dados['id'];
 										
 										$sql_sel_reservas="SELECT codigo FROM reservas WHERE clientes_id='".$idCliente."' AND ingressosdisponiveis_id='".$idIngressos."'";
-										$sql_sel_reservas_resultado=$conexao->query($sql_sel_reservas);
+										$sql_sel_reservas_resultado=$conexao->prepare($sql_sel_reservas);
 										//Verificando se ele ja tem reserva.
 										if($sql_sel_reservas_resultado -> num_rows>0){
 											$msg="Esta data já possui uma reserva";
@@ -51,8 +51,8 @@
 											
 											//------------------------------------SOMA--------------------------------------\\
 											$sql_sum_ingressos="SELECT SUM(qtde_normal) AS soma_normais, SUM(qtde_vip) AS soma_vips FROM reservas WHERE ingressosdisponiveis_id='".$idIngressos."'";
-											$sql_sum_ingressos_resultado=$conexao->query($sql_sum_ingressos);
-											$sql_sum_ingressos_dados=$sql_sum_ingressos_resultado->fetch_array();
+											$sql_sum_ingressos_resultado=$conexao->prepare($sql_sum_ingressos);
+											$sql_sum_ingressos_dados=$sql_sum_ingressos_resultado->fetch();
 											$qtde_normal_reservados=$sql_sum_ingressos_dados['soma_normais'];
 											$qtde_vip_reservados=$sql_sum_ingressos_dados['soma_vips'];
 											// Vendo se a quantidade de ingressos reservados + a quantidade q foi solicitada quando subtraida da qunatidade total ainda sobra alguma coisa.

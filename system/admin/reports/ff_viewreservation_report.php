@@ -17,7 +17,7 @@
 							INNER JOIN ingressosdisponiveis ON (reservas.ingressosdisponiveis_id = ingressosdisponiveis.id)
 							INNER JOIN datas ON (ingressosdisponiveis.datas_id = datas.id)
 							GROUP BY datas.dia";
-	$sql_sel_informacao_resultado=$conexao->query($sql_sel_informacao);
+	$sql_sel_informacao_resultado=$conexao->prepare($sql_sel_informacao);
 	// Salvando Conteudo em Variavel de sessão para abrir em PDF
 	$_SESSION['pagina']['titulo']='<h4>Relatório de Ingressos Reservados</h4>';	
 	$_SESSION['pagina']['conteudo']="
@@ -32,14 +32,14 @@
 				</tr>
 			</thead>";
 		// se n achar nada no BD é pq n tem nehuma reserva, INNER join n funciono no inicio
-	if($sql_sel_informacao_resultado->num_rows == 0){
+	if($sql_sel_informacao_resultado->rowCount() == 0){
 		$_SESSION['pagina']['conteudo'].="
 			<tr>
 				<td colspan='5'>Não há nenhuma Reserva no Sistema.</td>
 			<tr>";
 			$aux="1";
 	}else{
-		while($sql_sel_informacao_dados=$sql_sel_informacao_resultado->fetch_array()){
+		while($sql_sel_informacao_dados=$sql_sel_informacao_resultado->fetch()){
 			//transformando pra fomato br
 			$data = implode('/', array_reverse(explode('-', $sql_sel_informacao_dados['dia']))); 
 			// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 

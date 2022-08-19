@@ -59,21 +59,21 @@
 														
 													//--Validando Documnto--\\
 													$sql_sel_clientesD="SELECT tipo_doc, num_doc FROM clientes WHERE tipo_doc='".addslashes($p_tipodocumento)."' AND num_doc='".addslashes($p_numerodoc)."'";
-													$sql_sel_clientes_resultadoD=$conexao->query($sql_sel_clientesD);
+													$sql_sel_clientes_resultadoD=$conexao->prepare($sql_sel_clientesD);
 														
 													//--Validando Login--\\	
 													$sql_sel_usuarios="SELECT login FROM usuarios WHERE login='".addslashes($p_nomelogin)."'";
-													$sql_sel_usuarios_resultado=$conexao->query($sql_sel_usuarios);
+													$sql_sel_usuarios_resultado=$conexao->prepare($sql_sel_usuarios);
 													
 													//--Validando email--\\
 													$sql_sel_clientesE="SELECT email FROM clientes WHERE email='".addslashes($p_email)."'";
-													$sql_sel_clientes_resultadoE=$conexao->query($sql_sel_clientesE);
+													$sql_sel_clientes_resultadoE=$conexao->prepare($sql_sel_clientesE);
 
-													if($sql_sel_clientes_resultadoD->num_rows > 0){
+													if($sql_sel_clientes_resultadoD->rowCount() > 0){
 														$msg="Este Numero de Documento ( ".$documento.": ".$p_numerodoc." ) já está sendo utilizado, favor conferi-lo.";
-													}else if($sql_sel_usuarios_resultado->num_rows > 0){
+													}else if($sql_sel_usuarios_resultado->rowCount() > 0){
 															$msg="Este Nome de login ( ".$p_nomelogin." ) já está sendo utilizado, favor troca-lo.";
-														}else if($sql_sel_clientes_resultadoE->num_rows > 0){
+														}else if($sql_sel_clientes_resultadoE->rowCount() > 0){
 															$msg="Este Nome de email ( ".htmlentities($p_email, ENT_QUOTES)." ) já está sendo utilizado, favor troca-lo.";
 															}else{
 																//Alterando a Senha Para modo Encriptado

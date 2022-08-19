@@ -14,7 +14,7 @@ function adicionar($pr_tabela, $pr_dados){
 	//.= concatena e acrescenta o q ja existe
 			$sintaxe .= $campos[$aux].", ";
 		}
-				//o que substituir, a partir de onde, como substituir.
+	//o que substituir, a partir de onde, como substituir.
 	// "INSERT INTO usuarios (login, senha, permissao, 
 	$sintaxe = substr($sintaxe, 0, -2);
 	$sintaxe.=" ) VALUES ( ";
@@ -31,7 +31,8 @@ function adicionar($pr_tabela, $pr_dados){
 	//chama algo do global pra dentro da função, usar só quando necessário. quase nunca
 	global $conexao;
 	
-	$resultado = $conexao->query($sintaxe);
+	$resultado = $conexao->prepare($sintaxe);
+	$resultado->execute();
 	
 	return $resultado;
 }
@@ -41,7 +42,8 @@ function deletar($pr_tabela, $pr_condicao){
 	
 	global $conexao;
 	
-	$resultado = $conexao -> query($sintaxe);
+	$resultado = $conexao -> prepare($sintaxe);
+	$resultado->execute();
 	
 	return $resultado;
 
@@ -75,7 +77,8 @@ function alterar($pr_tabela,$pr_dados,$pr_condicao){
 		//"UPDATE usuarios SET login='".$p_nomelogin."' ,senha='".$p_senha."' WHERE id='".$p_id."'"
 		global $conexao;
 		
-		$resultado = $conexao -> query($sintaxe);
+		$resultado = $conexao -> prepare($sintaxe);
+		$resultado->execute();
 		
 		return $resultado;
 }	

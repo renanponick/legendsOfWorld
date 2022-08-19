@@ -2,7 +2,7 @@
 <?php 
 	$g_codigo=$_GET['codigo'];
 	$sql_sel_reservas="SELECT codigo FROM reservas WHERE codigo='".$g_codigo."'";
-	$sql_sel_reservas_resultado=$conexao->query($sql_sel_reservas);
+	$sql_sel_reservas_resultado=$conexao->prepare($sql_sel_reservas);
 	if($sql_sel_reservas_resultado -> num_rows == 0){ ?>
 	<fieldset>
 		<h3><span>Aviso</span></h3>

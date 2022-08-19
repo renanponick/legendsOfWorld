@@ -5,7 +5,7 @@
 	$select='';
 //Criando sintaxe para entrar em contato com o BD\\
 	$sql_sel_ingressos="SELECT * FROM ingressosdisponiveis WHERE id='".$g_id."'";
-	$sql_sel_ingressos_resultado=$conexao->query($sql_sel_ingressos);
+	$sql_sel_ingressos_resultado=$conexao->prepare($sql_sel_ingressos);
 	if($sql_sel_ingressos_resultado -> num_rows == 0){ ?>
 		<fieldset>
 			<legend>Aviso</legend>
@@ -15,10 +15,10 @@
 		</fieldset>
 	<?php
 	}else{
-	$sql_sel_ingressos_dados=$sql_sel_ingressos_resultado->fetch_array();
+	$sql_sel_ingressos_dados=$sql_sel_ingressos_resultado->fetch();
 //Sintaxe pra Select do dia	
 	$sql_sel_datas="SELECT dia, id FROM datas ORDER BY dia ASC";
-	$sql_sel_datas_resultado=$conexao->query($sql_sel_datas);
+	$sql_sel_datas_resultado=$conexao->prepare($sql_sel_datas);
 	?>
 		<fieldset>
 			<legend>Alteração de Ingresso</legend>
@@ -32,7 +32,7 @@
 								<option value="" required>Escolha...</option>
 								<?php
 								//Enquanto conseguir extrair um arrei de resultados e enviar para a variavel dados
-									while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch_array()){
+									while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch()){
 										if(($sql_sel_datas_dados['id'])==($sql_sel_ingressos_dados['datas_id'])){
 											$select='selected';
 										}else{

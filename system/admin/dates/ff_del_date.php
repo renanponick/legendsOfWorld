@@ -5,11 +5,11 @@
 		$imagem="warning.png";
 		
 		$sql_sel_ingressos="SELECT datas_id FROM ingressosdisponiveis WHERE datas_id='".$g_id."'";
-		$sql_sel_ingressos_resultado=$conexao->query($sql_sel_ingressos);
+		$sql_sel_ingressos_resultado=$conexao->prepare($sql_sel_ingressos);
 		
 		$sql_sel_bandas="SELECT datas_id FROM bandas WHERE datas_id='".$g_id."'";
-		$sql_sel_bandas_resultado=$conexao->query($sql_sel_bandas);
-		if(($sql_sel_ingressos_resultado->num_rows > 0)||($sql_sel_bandas_resultado->num_rows > 0)){
+		$sql_sel_bandas_resultado=$conexao->prepare($sql_sel_bandas);
+		if(($sql_sel_ingressos_resultado->rowCount() > 0)||($sql_sel_bandas_resultado->rowCount() > 0)){
 			$msg="Não é possivel deletar esta data<br>MOTIVO<br>Há Ingressos Disponiveis e/ou Bandas canastrados nela.<br>SOLUÇÃO<br>Deletar todas as bandas desta data<br>Deletar Ingressos Disponiveis da mesma";
 		}else{
 			$tabela = "datas";

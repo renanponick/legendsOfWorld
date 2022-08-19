@@ -1,12 +1,12 @@
 			<h2> Alterar Perfil de Acesso </h2>
 		<?php
 			$sql_sel_usuarios="SELECT login FROM usuarios WHERE id='".$_SESSION['id']."'";
-			$sql_sel_usuarios_resultado=$conexao->query($sql_sel_usuarios);
+			$sql_sel_usuarios_resultado=$conexao->prepare($sql_sel_usuarios);
 			if(!$sql_sel_usuarios_resultado){
 				$msg="Erro".$conexao->error;
 			?><h1><img src="../../layout/images/alert_icon.png" height='60px' width='60px'> <?php echo $msg; ?></h1><?php
 			}else{
-				$sql_sel_usuarios_dados=$sql_sel_usuarios_resultado->fetch_array();
+				$sql_sel_usuarios_dados=$sql_sel_usuarios_resultado->fetch();
 		?>
 			<fieldset>
 				<table>

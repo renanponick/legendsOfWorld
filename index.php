@@ -94,13 +94,14 @@
 				<div class="divisao_patrocinio">
 					<?php
 					$sql_sel_patrocinio="SELECT url_logo, nome FROM patrocinadores"; 
-					$sql_sel_patrocinio_resultado=$conexao->query($sql_sel_patrocinio);
-					if($sql_sel_patrocinio_resultado->num_rows==0){
+					$sql_sel_patrocinio_resultado=$conexao->prepare($sql_sel_patrocinio);
+					$sql_sel_patrocinio_resultado->execute();
+					if($sql_sel_patrocinio_resultado->rowCount()==0){
 						?>
 							<div>Espaço para Patrocinio.</div>
 						<?php
 					}else{
-						while($sql_sel_patrocinio_dados=$sql_sel_patrocinio_resultado->fetch_array()){
+						while($sql_sel_patrocinio_dados=$sql_sel_patrocinio_resultado->fetch()){
 					?>
 							<div class="patrocinadores">
 								<img src="<?php echo $sql_sel_patrocinio_dados['url_logo'];?>" title="<?php echo $sql_sel_patrocinio_dados['nome'];?>" width="55px" height="55px" />
@@ -114,7 +115,7 @@
 					&copy;Direitos Autorais - Renan Ponick
 				</div>
 			</footer>
-			<?php $conexao->close();?>
+			<?php //  $conexao->close();?>
 		</div>
 	</body>
 </html>

@@ -22,7 +22,7 @@
 	<?php
 	// Entrando em contato com o BD através de uma sintaxe
 	$sql_sel_datas="SELECT id, dia, descricao FROM datas";
-	$sql_sel_datas_resultado=$conexao->query($sql_sel_datas);
+	$sql_sel_datas_resultado=$conexao->prepare($sql_sel_datas);
 	?>
 	<h4>Datas Registradas</h4>
 	<table border="1" width="550">
@@ -37,7 +37,7 @@
 		</thead>
 		<tbody>
 			<?php
-				if($sql_sel_datas_resultado->num_rows == 0){
+				if($sql_sel_datas_resultado->rowCount() == 0){
 			?>
 				<tr>
 					<td colspan='5'>Não possui nenhum registro</td>
@@ -45,7 +45,7 @@
 			<?php
 			}else{
 			//Enquanto conseguir extrair um arrei de resultados e enviar para a variavel dados
-				while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch_array()){
+				while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch()){
 					//transformando pra fomato br
 					$data = implode('/', array_reverse(explode('-', $sql_sel_datas_dados['dia']))); 
 					// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 

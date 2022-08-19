@@ -16,7 +16,7 @@
 								//					- Na tabela datas (o id que vai ser pego da tabela ingressosdisponiveis(consulta acima))
 								//sendo q todos eles tem q ter o usuarios_id = ao id da sessao
 			// Executa a sintaxe
-			$sql_sel_reservas_resultado=$conexao->query($sql_sel_reservas);
+			$sql_sel_reservas_resultado=$conexao->prepare($sql_sel_reservas);
 			if($sql_sel_reservas_resultado -> num_rows==0){
 				echo "<div id='mensagem'><h1>Nenhuma Reserva Efetuada</h1></div>";
 			}else{
@@ -32,7 +32,7 @@
 					<th>Cancelar</th>
 				</tr>
 			</thead>
-			<?php while($sql_sel_reservas_dados=$sql_sel_reservas_resultado->fetch_array()){
+			<?php while($sql_sel_reservas_dados=$sql_sel_reservas_resultado->fetch()){
 				$valor_final=($sql_sel_reservas_dados['valor_vip']*$sql_sel_reservas_dados['qtde_vip'])+($sql_sel_reservas_dados['valor_normal']*$sql_sel_reservas_dados['qtde_normal']);
 				$data = implode('/', array_reverse(explode('-', $sql_sel_reservas_dados['dia']))); 
 				// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 

@@ -13,15 +13,15 @@
 				$_SESSION['pagina']['conteudo'] =""; 
 				
 				$sql_sel_data="SELECT * FROM datas ORDER BY dia ASC";
-				$sql_sel_data_resultado = $conexao -> query($sql_sel_data);
+				$sql_sel_data_resultado = $conexao -> prepare($sql_sel_data);
 				if($sql_sel_data_resultado -> num_rows == 0){
 					$_SESSION['pagina']['conteudo']="<div id='mensagemfinal'>Nenhuma data cadastrada no sistema.</div>";
 					$ContDat="Entrou";
 				}else{
-					while($sql_sel_data_dados = $sql_sel_data_resultado -> fetch_array()){
+					while($sql_sel_data_dados = $sql_sel_data_resultado -> fetch()){
 						$ContWhi= $ContWhi + 1;
 						$sql_sel_banda="SELECT nome FROM bandas WHERE datas_id='".$sql_sel_data_dados['id']."'";
-						$sql_sel_banda_resultado = $conexao -> query($sql_sel_banda);
+						$sql_sel_banda_resultado = $conexao -> prepare($sql_sel_banda);
 						
 						if($sql_sel_banda_resultado -> num_rows == 0){
 							$ContIf= $ContIf+1;
@@ -41,7 +41,7 @@
 									<tr>
 										<th>$descricao</th>
 									</tr>";
-							while($sql_sel_banda_dados = $sql_sel_banda_resultado->fetch_array()){
+							while($sql_sel_banda_dados = $sql_sel_banda_resultado->fetch()){
 							$Imprim="V";
 								$nome = $sql_sel_banda_dados['nome'];
 								$_SESSION['pagina']['conteudo'].="

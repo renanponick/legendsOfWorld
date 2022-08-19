@@ -5,7 +5,7 @@
 		$select = '';
 	//Criando sintaxe para entrar em contato com o BD\\
 		$sql_sel_bandas="SELECT * FROM bandas WHERE id='".$g_id."'";
-		$sql_sel_bandas_resultado=$conexao->query($sql_sel_bandas);
+		$sql_sel_bandas_resultado=$conexao->prepare($sql_sel_bandas);
 		if($sql_sel_bandas_resultado -> num_rows == 0){
 			?>
 			<fieldset>
@@ -15,10 +15,10 @@
 			</fieldset>
 			<?php
 		}else{
-		$sql_sel_bandas_dados=$sql_sel_bandas_resultado->fetch_array();
+		$sql_sel_bandas_dados=$sql_sel_bandas_resultado->fetch();
 			//Sintaxe pra Select do dia
 				$sql_sel_datas="SELECT dia, id FROM datas ORDER BY dia ASC";
-				$sql_sel_datas_resultado=$conexao->query($sql_sel_datas);
+				$sql_sel_datas_resultado=$conexao->prepare($sql_sel_datas);
 			?>
 			<fieldset>
 				<legend>Alteração de Bandas</legend>
@@ -31,7 +31,7 @@
 								<select name="seldata_banda">
 									<?php
 									//Enquanto conseguir extrair um arrei de resultados e enviar para a variavel dados
-										while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch_array()){
+										while($sql_sel_datas_dados = $sql_sel_datas_resultado->fetch()){
 											//transformando pra fomato br
 											$data = implode('/', array_reverse(explode('-', $sql_sel_datas_dados['dia']))); 
 											// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 

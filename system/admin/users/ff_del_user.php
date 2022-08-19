@@ -3,8 +3,8 @@
 				$msg="";
 				$imagem="warning.png";
 				$sql_sel_usuarios = "SELECT login FROM usuarios WHERE permissao='0'";
-				$sql_sel_usuarios_resultado=$conexao->query($sql_sel_usuarios);
-				$sql_sel_verifica = $sql_sel_usuarios_resultado->num_rows;
+				$sql_sel_usuarios_resultado=$conexao->prepare($sql_sel_usuarios);
+				$sql_sel_verifica = $sql_sel_usuarios_resultado->rowCount();
 				if($sql_sel_verifica==1){
 							$msg="Não é possivel realizar essa operação. Pois não há administradores cadastrado no sistema.";
 					}else{

@@ -22,7 +22,7 @@
 	<?php
 	//Entrando em contato com o banco Através de uma sintaxe
 	$sql_sel_patrocinadores = "SELECT id, nome FROM patrocinadores";
-	$sql_sel_patrocinadores_resultado = $conexao->query($sql_sel_patrocinadores);
+	$sql_sel_patrocinadores_resultado = $conexao->prepare($sql_sel_patrocinadores);
 	?>
 	<h4>Patrocinadores Registrados</h4>
 	<table border="1" width="550">
@@ -37,7 +37,7 @@
 		<tbody>
 			<?php
 				//Verifica quantas vezes encontrou o que foi solicitado
-				if($sql_sel_patrocinadores_resultado->num_rows == 0){
+				if($sql_sel_patrocinadores_resultado->rowCount() == 0){
 			?>
 				<tr>
 					<td colspan='4'>Não existe nenhum registro.</td>
@@ -45,7 +45,7 @@
 			<?php
 				}else{
 				//Enquanto conseguir extrair um arrei de resultados e enviar para a variavel dados
-					while ($sql_sel_patrocinadores_dados = $sql_sel_patrocinadores_resultado->fetch_array()){
+					while ($sql_sel_patrocinadores_dados = $sql_sel_patrocinadores_resultado->fetch()){
 			?>
 						<tr>
 							<td><?php echo $sql_sel_patrocinadores_dados['id']; ?></td>

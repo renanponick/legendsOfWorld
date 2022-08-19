@@ -4,7 +4,7 @@
 	//Entrando em contato com o banco Através de uma sintaxe
 	$sql_sel_datas="SELECT dia, descricao FROM datas WHERE id='".$g_id."'";
 	//Executando Sintaxe
-	$sql_sel_datas_resultado = $conexao->query($sql_sel_datas);
+	$sql_sel_datas_resultado = $conexao->prepare($sql_sel_datas);
 	if($sql_sel_datas_resultado -> num_rows == 0){ ?>
 		<fieldset>
 			<legend>Aviso</legend>
@@ -14,7 +14,7 @@
 		</fieldset>
 <?php
 	}else{
-		$sql_sel_datas_dados = $sql_sel_datas_resultado->fetch_array();
+		$sql_sel_datas_dados = $sql_sel_datas_resultado->fetch();
 		//transformando pra fomato br
 		$data = implode('/', array_reverse(explode('-', $sql_sel_datas_dados['dia']))); 
 					// $data = implode('/', array_reverse(explode('-', 2014-12-15))); 

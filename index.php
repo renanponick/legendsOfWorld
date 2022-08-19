@@ -45,9 +45,6 @@
 				</div>
 			</header>
 			<div id="barra_lateral">
-				<div id="img_titulo"> 
-					<img src="layout/images/logo_festival.png"/> 
-				</div>
 				<form name="frmautenticacao" action="?folder=security/authentication&file=ff_login_authentication&ext=php" method="post" onsubmit="return verifica_login()">
 					<div id="logar">
 						<div class="ajustar_lateral">

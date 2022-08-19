@@ -1,8 +1,8 @@
 <?php
-	$servidor="ec2-3-219-52-220.compute-1.amazonaws.com";
-	$banco="d1vq0ipvqmd4kq";
-	$usuario="rdwsjopnnbyrqv";
+	$servidor="ec2-52-207-15-147.compute-1.amazonaws.com";
+	$banco="dft9vorbqmduoj";
+	$usuario="ifpswubseubwsf";
 	$porta="5432";
-	$senha="34fa8cb0744be4ca893e3d380534346d6149e2010bf878214fb63b09a61206bc";
-	$salt = "#GvIlU&4VerDr3PJnT5";
+	$senha="c6f8194a6dd9dccafbe558958fc4d6dda70f2690452df0e5f707d33e983ef832";
+	$salt = "#Teste";
 ?>

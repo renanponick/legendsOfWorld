@@ -164,8 +164,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `login`, `senha`, `permissao`) VALUES
-(000014, 'cliente', '382716de1cdc6ad9de3114a10e7469ab', 1),
-(000031, 'admin', '382716de1cdc6ad9de3114a10e7469ab', 0);
+(000014, 'cliente', 'cc03e747a6afbbcbf8be7668acfebee5', 1),
+(000031, 'admin', 'cc03e747a6afbbcbf8be7668acfebee5', 0);
 
 --
 -- Constraints for dumped tables

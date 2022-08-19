@@ -4,5 +4,5 @@
 	$usuario="ifpswubseubwsf";
 	$porta="5432";
 	$senha="c6f8194a6dd9dccafbe558958fc4d6dda70f2690452df0e5f707d33e983ef832";
-	$salt = "#Teste";
+	$salt = "#GvIlU&4VerDr3PJnT5";
 ?>

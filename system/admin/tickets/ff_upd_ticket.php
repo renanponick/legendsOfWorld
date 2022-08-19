@@ -47,6 +47,7 @@
 															$sql_sel_ingressos="SELECT id FROM ingressosdisponiveis WHERE id<>'".$p_id."' AND datas_id='".addslashes($p_id_data)."'";
 															//Executando Sintaxe
 															$sql_sel_ingressos_resultado=$conexao->prepare($sql_sel_ingressos);
+															$sql_sel_ingressos_resultado->execute();
 															//Verificando se foi encontrado algum nome igual
 															if($sql_sel_ingressos_resultado->rowCount() > 0){
 																$msg="Essa data já possui um Registro de Ingresso.";

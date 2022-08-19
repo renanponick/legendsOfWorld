@@ -23,6 +23,7 @@
 	//Entrando em contato com o banco Através de uma sintaxe
 	$sql_sel_patrocinadores = "SELECT id, nome FROM patrocinadores";
 	$sql_sel_patrocinadores_resultado = $conexao->prepare($sql_sel_patrocinadores);
+	$sql_sel_patrocinadores_resultado->execute();
 	?>
 	<h4>Patrocinadores Registrados</h4>
 	<table border="1" width="550">

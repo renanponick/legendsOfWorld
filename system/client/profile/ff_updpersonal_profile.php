@@ -47,6 +47,7 @@
 													}else{
 															$sql_sel_clientes="SELECT tipo_doc, num_doc FROM clientes WHERE tipo_doc='".addslashes($p_doc)."' AND num_doc='".addslashes($p_numdoc)."' AND usuarios_id<>'".addslashes($_SESSION['id'])."'";
 															$sql_sel_clientes_resultado=$conexao->prepare($sql_sel_clientes);
+															$sql_sel_clientes_resultado->execute();
 															if($sql_sel_clientes_resultado->rowCount()>0){
 																$msg="<br>Usuário já cadastrado.<br>Motivo: Este Numero de ".$documento." ( ".$p_numdoc." ) já está sendo utilizado, favor conferi-lo.";
 														}else{

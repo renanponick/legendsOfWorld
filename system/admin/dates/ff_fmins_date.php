@@ -23,6 +23,7 @@
 	// Entrando em contato com o BD através de uma sintaxe
 	$sql_sel_datas="SELECT id, dia, descricao FROM datas";
 	$sql_sel_datas_resultado=$conexao->prepare($sql_sel_datas);
+	$sql_sel_datas_resultado->execute();
 	?>
 	<h4>Datas Registradas</h4>
 	<table border="1" width="550">

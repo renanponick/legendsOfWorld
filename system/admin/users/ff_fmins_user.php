@@ -22,6 +22,7 @@
 	<?php
 		$sql_sel_usuarios = "SELECT id, login FROM usuarios WHERE permissao = '0'";
 		$sql_sel_usuarios_resultado = $conexao->prepare($sql_sel_usuarios);
+		$sql_sel_usuarios_resultado->execute();
 	?>
 	<h4>Administradores Registrados</h4>
 	<table border="1" width="550">

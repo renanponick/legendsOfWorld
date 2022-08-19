@@ -2,6 +2,7 @@
 		<?php
 			$sql_sel_clientes="SELECT * FROM clientes WHERE usuarios_id='".$_SESSION['id']."'";
 			$sql_sel_clientes_resultado=$conexao->prepare($sql_sel_clientes);
+			$sql_sel_clientes_resultado->execute();
 			if(!$sql_sel_clientes_resultado){
 				$msg="Erro".$conexao->error;
 			?>	<h1><img src="../../layout/images/alert_icon.png" height='60px' width='60px'> <?php echo $msg; ?></h1><?php

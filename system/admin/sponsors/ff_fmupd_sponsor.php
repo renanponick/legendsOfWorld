@@ -4,6 +4,7 @@
 		//Entrando em contato com o banco Através de uma sintaxe
 		$sql_sel_patrocinadores= "SELECT nome, url_logo FROM patrocinadores WHERE id='".$g_id."'";
 		$sql_sel_patrocinadores_resultado = $conexao->prepare($sql_sel_patrocinadores);
+		$sql_sel_patrocinadores_resultado->execute();
 		if($sql_sel_patrocinadores_resultado -> num_rows == 0){ ?>
 		<fieldset>
 			<legend>Aviso</legend>

@@ -2,6 +2,7 @@
 		<?php
 			$sql_sel_bandas="SELECT nome, descricao, url_imagem FROM bandas ORDER BY nome ASC";
 			$sql_sel_bandas_resultado=$conexao->prepare($sql_sel_bandas);
+			$sql_sel_bandas_resultado->execute();
 			
 			if($sql_sel_bandas_resultado->rowCount() == 0){
 				?>

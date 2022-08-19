@@ -23,6 +23,7 @@
 					$sql_sel_bandas="SELECT nome FROM bandas WHERE nome='".addslashes($p_nome)."' AND id<>'".$p_id."'";
 					//Executando Sintaxe
 					$sql_sel_bandas_resultado=$conexao->prepare($sql_sel_bandas);
+					$sql_sel_bandas_resultado->execute();
 					//Verificando se foi encontrado algum nome igual
 					if($sql_sel_bandas_resultado->rowCount() > 0){
 						$msg = depositoMensagens(3,'a banda', 'a');

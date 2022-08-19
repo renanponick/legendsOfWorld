@@ -12,6 +12,7 @@
 				}else{
 					$sql_sel_usuarios = "SELECT login FROM usuarios WHERE login = '".addslashes($p_nomelogin)."'";
 					$sql_sel_usuarios_resultado = $conexao->prepare($sql_sel_usuarios);
+					$sql_sel_usuarios_resultado->execute();
 					if($sql_sel_usuarios_resultado->rowCount() > 0){ //Quantas linhas ele executou no banco
 						$msg = "Esse nome já está cadastrado.";
 					}else{

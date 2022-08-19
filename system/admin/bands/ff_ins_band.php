@@ -21,6 +21,7 @@
 						// .-. Criando a sintaxe SQL para executar no BD .-. \\
 						$sql_sel_bandas="SELECT nome FROM bandas WHERE nome='".addslashes($p_nome)."'";
 						$sql_sel_bandas_resultado=$conexao->prepare($sql_sel_bandas);
+						$sql_sel_bandas_resultado->execute();
 						if($sql_sel_bandas_resultado->rowCount() > 0){
 							$msg = depositoMensagens(3,'a banda', 'a');
 						}else{

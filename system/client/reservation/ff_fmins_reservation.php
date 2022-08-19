@@ -8,6 +8,7 @@
 								INNER JOIN ingressosdisponiveis ON (ingressosdisponiveis.datas_id = datas.id)
 								ORDER BY dia ASC";
 			$sql_sel_ingressos_resultado = $conexao->prepare($sql_sel_ingressos);
+			$sql_sel_ingressos_resultado->execute();
 		?>
 			<h2>Reserva de Ingressos</h2>
 			<fieldset>
@@ -54,6 +55,7 @@
 								INNER JOIN ingressosdisponiveis ON (ingressosdisponiveis.datas_id = datas.id)
 								ORDER BY dia ASC";
 			$sql_sel_tabela_resultado=$conexao->prepare($sql_sel_tabela);
+			$sql_sel_tabela_resultado->execute();
 			if($sql_sel_tabela_resultado->rowCount()==0){
 				echo "<h3>Nenhum ngresso Disponivel no sistema</br>Volte mais tarde...<h3>";
 			}else{

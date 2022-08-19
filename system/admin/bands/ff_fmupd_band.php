@@ -6,6 +6,7 @@
 	//Criando sintaxe para entrar em contato com o BD\\
 		$sql_sel_bandas="SELECT * FROM bandas WHERE id='".$g_id."'";
 		$sql_sel_bandas_resultado=$conexao->prepare($sql_sel_bandas);
+		$sql_sel_bandas_resultado->execute();
 		if($sql_sel_bandas_resultado -> num_rows == 0){
 			?>
 			<fieldset>

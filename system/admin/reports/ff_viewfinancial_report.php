@@ -44,6 +44,7 @@
 									INNER JOIN datas ON (ingressosdisponiveis.datas_id = datas.id)
 									GROUP BY datas.dia";
 		$sql_sel_financieiro_resultado=$conexao->prepare($sql_sel_financieiro);
+		$sql_sel_financieiro_resultado->execute();
 		
 
 $_SESSION['pagina']['titulo'] = "<h4>Estimativa de Ganho com Venda de Ingressos</h4>";

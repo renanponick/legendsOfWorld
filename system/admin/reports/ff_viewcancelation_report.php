@@ -17,6 +17,7 @@
 		$motivo_d = 0;
 		$sql_sel_canceladas = "SELECT motivo, permissao_usuario FROM canceladas";
 		$sql_sel_canceladas_resultado = $conexao->prepare($sql_sel_canceladas);
+		$sql_sel_canceladas_resultado->execute();
 		if($sql_sel_canceladas_resultado->rowCount()==0){
 			echo "<span id='msg'>Sem Declinio e Cancelamento</span>";
 		}else{

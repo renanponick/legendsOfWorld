@@ -5,6 +5,7 @@
 	$sql_sel_datas="SELECT dia, descricao FROM datas WHERE id='".$g_id."'";
 	//Executando Sintaxe
 	$sql_sel_datas_resultado = $conexao->prepare($sql_sel_datas);
+	$sql_sel_datas_resultado->execute();
 	if($sql_sel_datas_resultado -> num_rows == 0){ ?>
 		<fieldset>
 			<legend>Aviso</legend>

@@ -16,6 +16,7 @@
 					}else{
 						$sql_sel_usuarios = "SELECT login FROM usuarios WHERE login = '".addslashes($p_nomelogin)."' AND id<>'".$p_id."'";
 						$sql_sel_usuarios_resultado = $conexao->prepare($sql_sel_usuarios);
+						$sql_sel_usuarios_resultado->execute();
 						if($sql_sel_usuarios_resultado->rowCount() > 0){ //Quantas linhas ele executou no banco
 							$msg = "Esse administrador já está cadastrado.";
 							//Entrando em contato com o banco Através de uma sintaxe

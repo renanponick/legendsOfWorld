@@ -18,6 +18,7 @@
 							INNER JOIN datas ON (ingressosdisponiveis.datas_id = datas.id)
 							GROUP BY datas.dia";
 	$sql_sel_informacao_resultado=$conexao->prepare($sql_sel_informacao);
+	$sql_sel_informacao_resultado->execute();
 	// Salvando Conteudo em Variavel de sessão para abrir em PDF
 	$_SESSION['pagina']['titulo']='<h4>Relatório de Ingressos Reservados</h4>';	
 	$_SESSION['pagina']['conteudo']="

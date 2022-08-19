@@ -6,6 +6,7 @@
 				// Criando sintaxe
 				$sql_sel_reservas="SELECT ingressosdisponiveis_id FROM reservas WHERE ingressosdisponiveis_id='".$g_id."'";
 				$sql_sel_reservas_resultado=$conexao->prepare($sql_sel_reservas);
+				$sql_sel_reservas_resultado->execute();
 				if($sql_sel_reservas_resultado->rowCount() > 0){
 					$msg="Não é possivel deletar esses Ingressos Disponiveis<br>MOTIVO<br>Este Cadastro de Ingresso já possui reservas<br>SOLUÇÃO<br>Deletar todas as reservas";
 				}else{

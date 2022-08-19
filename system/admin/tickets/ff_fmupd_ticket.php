@@ -6,6 +6,7 @@
 //Criando sintaxe para entrar em contato com o BD\\
 	$sql_sel_ingressos="SELECT * FROM ingressosdisponiveis WHERE id='".$g_id."'";
 	$sql_sel_ingressos_resultado=$conexao->prepare($sql_sel_ingressos);
+	$sql_sel_ingressos_resultado->execute();
 	if($sql_sel_ingressos_resultado -> num_rows == 0){ ?>
 		<fieldset>
 			<legend>Aviso</legend>
@@ -19,6 +20,7 @@
 //Sintaxe pra Select do dia	
 	$sql_sel_datas="SELECT dia, id FROM datas ORDER BY dia ASC";
 	$sql_sel_datas_resultado=$conexao->prepare($sql_sel_datas);
+	$sql_sel_datas_resultado->execute();
 	?>
 		<fieldset>
 			<legend>Alteração de Ingresso</legend>

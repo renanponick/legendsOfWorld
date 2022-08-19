@@ -2,6 +2,7 @@
 	<?php
 		$sql_sel_datas = "SELECT id, dia FROM datas ORDER BY dia ASC";
 		$sql_sel_datas_resultado = $conexao->prepare($sql_sel_datas);
+		$sql_sel_datas_resultado->execute();
 	?>
 		<legend>Cadastro de Ingresso</legend>
 		<form name="frmcadingr" method="post" action="?folder=tickets&file=ff_ins_ticket&ext=php" onsubmit="return verificar_ingresso()">
@@ -65,11 +66,12 @@
 		</thead>
 		<?php
 		//Criando Sintaxe
-		$sql_sel_ingressos = "SELECT ingressosdisponiveis.*,
+			$sql_sel_ingressos = "SELECT ingressosdisponiveis.*,
 									 datas.dia
 							FROM ingressosdisponiveis
 							INNER JOIN datas ON (datas.id = ingressosdisponiveis.datas_id)";
 			$sql_sel_ingressos_resultado=$conexao->prepare($sql_sel_ingressos);
+			$sql_sel_ingressos_resultado->execute();
 		?>
 		<tbody>
 			<?php 

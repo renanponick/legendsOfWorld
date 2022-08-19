@@ -27,6 +27,7 @@
 										//Selecionando o ID do usuario para a Reserva
 										$sql_sel_clientes="SELECT id FROM clientes WHERE usuarios_id='".$_SESSION['id']."'";
 										$sql_sel_clientes_resultado=$conexao->prepare($sql_sel_clientes);
+										$sql_sel_clientes_resultado->execute();
 										//Transformando em ARRAY
 										$sql_sel_clientes_dados=$sql_sel_clientes_resultado->fetch();
 										//Salvando o ID do Cliente
@@ -35,6 +36,7 @@
 										//Selecionando o Id estrangeiro dos Ingressos Disponiveis
 										$sql_sel_ingressosdisponiveis="SELECT * FROM ingressosdisponiveis WHERE datas_id='".$p_data."'";
 										$sql_sel_ingressosdisponiveis_resultado=$conexao->prepare($sql_sel_ingressosdisponiveis);
+										$sql_sel_ingressosdisponiveis_resultado->execute();
 										//Transformando em ARRAY
 										$sql_sel_ingressosdisponiveis_dados=$sql_sel_ingressosdisponiveis_resultado->fetch();
 										//Salvando o ID dos Ingressos Disponiveis
@@ -42,6 +44,7 @@
 										
 										$sql_sel_reservas="SELECT codigo FROM reservas WHERE clientes_id='".$idCliente."' AND ingressosdisponiveis_id='".$idIngressos."'";
 										$sql_sel_reservas_resultado=$conexao->prepare($sql_sel_reservas);
+										$sql_sel_reservas_resultado->execute();
 										//Verificando se ele ja tem reserva.
 										if($sql_sel_reservas_resultado -> num_rows>0){
 											$msg="Esta data já possui uma reserva";
@@ -52,6 +55,7 @@
 											//------------------------------------SOMA--------------------------------------\\
 											$sql_sum_ingressos="SELECT SUM(qtde_normal) AS soma_normais, SUM(qtde_vip) AS soma_vips FROM reservas WHERE ingressosdisponiveis_id='".$idIngressos."'";
 											$sql_sum_ingressos_resultado=$conexao->prepare($sql_sum_ingressos);
+											$sql_sum_ingressos_resultado->execute();
 											$sql_sum_ingressos_dados=$sql_sum_ingressos_resultado->fetch();
 											$qtde_normal_reservados=$sql_sum_ingressos_dados['soma_normais'];
 											$qtde_vip_reservados=$sql_sum_ingressos_dados['soma_vips'];

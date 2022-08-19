@@ -3,6 +3,7 @@
 		//ORDE(R)na BY(de forma) ASCendente
 		$sql_sel_datas = "SELECT id, dia FROM datas ORDER BY dia ASC";
 		$sql_sel_datas_resultado = $conexao->prepare($sql_sel_datas);
+		$sql_sel_datas_resultado->execute();
 	?>
 		<legend>Cadastro de Banda</legend>
 		<form name="frmcadband" method="post" action="?folder=bands&file=ff_ins_band&ext=php" onsubmit="return verificar_banda()">

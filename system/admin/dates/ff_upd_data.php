@@ -24,6 +24,7 @@
 					//Entrando em contato com o banco Através de uma sintaxe
 					$sql_sel_datas="SELECT dia FROM datas WHERE dia='".addslashes($data)."' AND id<>'".$p_id."'";
 					$sql_sel_datas_resultado=$conexao->prepare($sql_sel_datas);
+					$sql_sel_datas_resultado->execute();
 					//Verificando quantas vezes ele achou o que foi solicitado
 					if($sql_sel_datas_resultado->rowCount() > 0){
 						$msg = depositoMensagens(3,'a data', 'a');

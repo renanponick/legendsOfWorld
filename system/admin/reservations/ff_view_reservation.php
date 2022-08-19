@@ -7,6 +7,7 @@
 									INNER JOIN datas ON (datas.id = ingressosdisponiveis.datas_id)
 									ORDER BY codigo DESC";
 			$sql_sel_informacao_resultado=$conexao->prepare($sql_sel_informacao);
+			$sql_sel_informacao_resultado->execute();
 			$sql_sel_informacao_checar=$sql_sel_informacao_resultado->rowCount();
 		?>
 			<h4>Reservas Efetuadas</h4>

@@ -11,6 +11,7 @@
 											INNER JOIN usuarios ON (clientes.usuarios_id = usuarios.id) 
 											WHERE usuarios.id='".$_SESSION['id']."'";
 				$sql_sel_reservas_resultado=$conexao->prepare($sql_sel_reservas);
+				$sql_sel_reservas_resultado->execute();
 				if($sql_sel_reservas_resultado->rowCount() > 0){
 					$msg="<br>Não é possivel Deletar esta conta<br>MOTIVO<br>Ingressos foram reservados<br>SOLUÇÃO<br>Canselar todas as reservas.";
 				}else{

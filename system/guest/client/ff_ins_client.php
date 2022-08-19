@@ -60,15 +60,15 @@
 													//--Validando Documnto--\\
 													$sql_sel_clientesD="SELECT tipo_doc, num_doc FROM clientes WHERE tipo_doc='".addslashes($p_tipodocumento)."' AND num_doc='".addslashes($p_numerodoc)."'";
 													$sql_sel_clientes_resultadoD=$conexao->prepare($sql_sel_clientesD);
-														
+													$sql_sel_clientes_resultadoD->execute();	
 													//--Validando Login--\\	
 													$sql_sel_usuarios="SELECT login FROM usuarios WHERE login='".addslashes($p_nomelogin)."'";
 													$sql_sel_usuarios_resultado=$conexao->prepare($sql_sel_usuarios);
-													
+													$sql_sel_usuarios_resultado->execute();
 													//--Validando email--\\
 													$sql_sel_clientesE="SELECT email FROM clientes WHERE email='".addslashes($p_email)."'";
-													$sql_sel_clientes_resultadoE=$conexao->prepare($sql_sel_clientesE);
-
+													$sql_sel_clientes_resultadoE=$conexao($sql_sel_clientesE);
+													$sql_sel_clientes_resultadoE->execute();
 													if($sql_sel_clientes_resultadoD->rowCount() > 0){
 														$msg="Este Numero de Documento ( ".$documento.": ".$p_numerodoc." ) já está sendo utilizado, favor conferi-lo.";
 													}else if($sql_sel_usuarios_resultado->rowCount() > 0){

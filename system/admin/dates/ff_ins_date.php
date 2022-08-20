@@ -45,7 +45,7 @@
 							}
 					}
 				}
-		$conexao->close();
+		// $conexao->close();
 	// Fim \\
 	?>
 	<!-- Mensagem final -->

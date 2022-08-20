@@ -7,7 +7,7 @@
 		$sql_sel_bandas="SELECT * FROM bandas WHERE id='".$g_id."'";
 		$sql_sel_bandas_resultado=$conexao->prepare($sql_sel_bandas);
 		$sql_sel_bandas_resultado->execute();
-		if($sql_sel_bandas_resultado -> num_rows == 0){
+		if($sql_sel_bandas_resultado->rowCount() == 0){
 			?>
 			<fieldset>
 				<legend>Aviso</legend>

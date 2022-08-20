@@ -18,7 +18,7 @@
 			// Executa a sintaxe
 			$sql_sel_reservas_resultado=$conexao->prepare($sql_sel_reservas);
 			$sql_sel_reservas_resultado->execute();
-			if($sql_sel_reservas_resultado -> num_rows==0){
+			if($sql_sel_reservas_resultado->rowCount()==0){
 				echo "<div id='mensagem'><h1>Nenhuma Reserva Efetuada</h1></div>";
 			}else{
 		?>

@@ -4,7 +4,7 @@
 	$sql_sel_usuarios="SELECT login FROM usuarios WHERE id='".$g_id."'";
 	$sql_sel_usuarios_resultado=$conexao->prepare($sql_sel_usuarios);
 	$sql_sel_usuarios_resultado->execute();
-	if($sql_sel_usuarios_resultado -> num_rows == 0){ ?>
+	if($sql_sel_usuarios_resultado->rowCount() == 0){ ?>
 		<fieldset>
 			<legend>Aviso</legend>
 			<br>Administrador Inexistente<br><br>

@@ -115,7 +115,7 @@
 					&copy;Direitos Autorais - Renan Ponick
 				</div>
 			</footer>
-			<?php //  $conexao->close();?>
+			<?php // $conexao->close();?>
 		</div>
 	</body>
 </html>

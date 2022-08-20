@@ -14,7 +14,9 @@
 				
 				$sql_sel_data="SELECT * FROM datas ORDER BY dia ASC";
 				$sql_sel_data_resultado = $conexao -> prepare($sql_sel_data);
-				if($sql_sel_data_resultado -> num_rows == 0){
+				$sql_sel_data_resultado->execute();
+
+				if($sql_sel_data_resultado->rowCount() == 0){
 					$_SESSION['pagina']['conteudo']="<div id='mensagemfinal'>Nenhuma data cadastrada no sistema.</div>";
 					$ContDat="Entrou";
 				}else{
@@ -22,8 +24,8 @@
 						$ContWhi= $ContWhi + 1;
 						$sql_sel_banda="SELECT nome FROM bandas WHERE datas_id='".$sql_sel_data_dados['id']."'";
 						$sql_sel_banda_resultado = $conexao -> prepare($sql_sel_banda);
-						
-						if($sql_sel_banda_resultado -> num_rows == 0){
+						$sql_sel_banda_resultado->execute();
+						if($sql_sel_banda_resultado->rowCount() == 0){
 							$ContIf= $ContIf+1;
 						}else{
 							//deixando data de forma BR

@@ -46,7 +46,7 @@
 										$sql_sel_reservas_resultado=$conexao->prepare($sql_sel_reservas);
 										$sql_sel_reservas_resultado->execute();
 										//Verificando se ele ja tem reserva.
-										if($sql_sel_reservas_resultado -> num_rows>0){
+										if($sql_sel_reservas_resultado->rowCount()>0){
 											$msg="Esta data já possui uma reserva";
 										}else{
 											$total_disponivel_normal = $sql_sel_ingressosdisponiveis_dados['qtde_normal'];

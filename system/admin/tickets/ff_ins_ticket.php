@@ -46,6 +46,7 @@
 																$sql_sel_ingresso="SELECT id, datas_id FROM ingressosdisponiveis WHERE datas_id='".addslashes($p_dataingresso)."'";
 																// .-. Verificar(executa a sintaxe) se deu certo a Sintaxe .-. \\
 																$sql_sel_ingresso_resultado = $conexao -> prepare($sql_sel_ingresso);
+																$sql_sel_ingresso_resultado->execute();
 																if($sql_sel_ingresso_resultado->rowCount() > 0){
 																	$msg = "Essa data já possui ingressos cadastrados.";
 																}else{
